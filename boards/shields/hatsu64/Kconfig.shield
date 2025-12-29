@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: MIT
+
+config SHIELD_HATSU64_LEFT_PERIPHERAL
+    def_bool $(shields_list_contains,hatsu64_left_peripheral)
+
+config SHIELD_HATSU64_LEFT_CENTRAL
+    def_bool $(shields_list_contains,hatsu64_left_central)
+
+config SHIELD_HATSU64_RIGHT_PERIPERAL
+    def_bool $(shields_list_contains,hatsu64_right_periperal)
+
+config SHIELD_HATSU64_DONGLE_CENTRAL
+    def_bool $(shields_list_contains,hatsu64_dongle_central)

@@ -17,4 +17,46 @@
 #     cmake-args: -DCONFIG_ZMK_STUDIO=y
 #     artifact-name: corne_left_with_studio
 #
----
+
+include:
+  - board: nice_nano
+    shield: hatsu64_dongle_central
+    artifact-name: hatsu64_dongle_central
+    snippet: studio-rpc-usb-uart
+    cmake-args: >
+      -DCONFIG_ZMK_STUDIO=y 
+      -DCONFIG_ZMK_STUDIO_LOCKING=n
+
+  - board: nice_nano
+    shield: hatsu64_left_central
+    artifact-name: hatsu64_left_central
+    snippet: studio-rpc-usb-uart
+    cmake-args: >
+      -DCONFIG_ZMK_STUDIO=y 
+      -DCONFIG_ZMK_STUDIO_LOCKING=n
+
+  - board: nice_nano
+    shield: hatsu64_left_peripheral
+    artifact-name: hatsu64_left_peripheral
+    cmake-args: >
+      -DCONFIG_ZMK_SPLIT=y 
+      -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+
+  - board: nice_nano
+    shield: hatsu64_right_peripheral
+    artifact-name: hatsu64_right_peripheral
+    cmake-args: >
+      -DCONFIG_ZMK_SPLIT=y 
+      -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+
+  - board: nice_nano
+    shield: settings_reset
+
+  - board: nice_nano
+    shield: hatsu64_dongle_central
+    artifact-name: hatsu64_dongle_central_with_logging
+    snippet: zmk-usb-logging
+    cmake-args: >
+      -DCONFIG_ZMK_STUDIO=y 
+      -DCONFIG_ZMK_STUDIO_LOCKING=n
+    

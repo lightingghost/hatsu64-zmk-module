@@ -1,0 +1,13 @@
+file_format: "1"
+id: hatsu64
+name: Hatsu64
+type: shield
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+  - underglow
+siblings:
+  - hatsu64_left
+  - hatsu64_right
