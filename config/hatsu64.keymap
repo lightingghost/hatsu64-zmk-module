@@ -84,10 +84,19 @@
     };
 
     macros {
-        m1: m1 {
+        stupid: m1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp NUMBER_1>;
+            bindings =
+                <&macro_press>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&kp O &kp A>,
+                <&macro_release>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&kp>;
+
             label = "M1";
         };
     };
@@ -98,52 +107,27 @@
         default_layer {
             label = "DEFAULT";
             bindings = <
-&lt 1 ESC  &kp N1  &kp N2     &kp N3     &kp N4     &kp N5     &kp N6    &kp N7     &kp N8     &kp N9    &kp N0    &lt 1 MINUS
-&lt 2 TAB  &kp Q   &kp W      &kp E      &kp R      &kp T      &kp Y     &kp U      &kp I      &kp O     &kp P     &lt 2 EQUAL
-&kp LSHFT  &kp A   &kp S      &kp D      &kp F      &kp G      &kp H     &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
-&kp CAPS   &kp Z   &kp X      &kp C      &kp V      &kp B      &kp N     &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp LSHFT
-                   &kp LGUI   &kp GRAVE  &kp BSPC   &kp SPACE  &kp UP    &kp ENTER  &kp LBKT   &kp RBKT
-                   &kp GRAVE  &kp LALT   &kp LCTRL  &lt 3 DEL  &kp LEFT  &kp RIGHT  &kp DOWN   &kp NUBS
+&kp GRAVE  &kp N1  &kp N2     &kp N3     &kp N4     &kp N5        &kp N6         &kp N7     &kp N8     &kp N9     &kp N0    &lt 2 DEL
+&lt 1 TAB  &kp Q   &kp W      &kp E      &kp R      &kp T         &kp Y          &kp U      &kp I      &kp O      &kp P     &kp BACKSLASH
+&kp LSHFT  &kp A   &kp S      &kp D      &kp F      &kp G         &kp H          &kp J      &kp K      &kp L      &kp SEMI  &kp SQT
+&kp LCTRL  &kp Z   &kp X      &kp C      &kp V      &kp B         &kp N          &kp M      &kp COMMA  &kp DOT    &kp FSLH  &kp RIGHT_ALT
+                   &kp MINUS  &kp EQUAL  &kp SPACE  &kp LEFT_GUI  &kp BACKSPACE  &kp ENTER  &kp LBKT   &kp RBKT
+                   &kp LEFT   &kp HOME   &kp LCTRL  &kp UP        &kp DOWN       &kp ESC    &kp END    &kp RIGHT
             >;
         };
 
-        number_layer {
-            label = "NUMBER";
+        func_layer {
             bindings = <
-&trans  &none  &kp F10  &kp F11  &kp F12  &none   &none   &none      &kp KP_SLASH  &kp KP_MULTIPLY  &kp KP_MINUS  &none
-&trans  &none  &kp F7   &kp F8   &kp F9   &none   &none   &kp KP_N7  &kp KP_N8     &kp KP_N9        &kp KP_PLUS   &none
-&trans  &none  &kp F4   &kp F5   &kp F6   &none   &none   &kp KP_N4  &kp KP_N5     &kp KP_N6        &kp ENTER     &none
-&trans  &none  &kp F1   &kp F2   &kp F3   &none   &none   &kp KP_N1  &kp KP_N2     &kp KP_N3        &kp ENTER     &kp ENTER
-               &trans   &trans   &trans   &trans  &none   &none      &kp KP_N0     &kp KP_DOT
-               &trans   &trans   &trans   &trans  &trans  &none      &none         &trans
+&trans  &kp F1  &kp F2    &kp F3    &kp F4     &kp F5    &kp F6    &kp F7    &kp F8  &kp F9     &kp F10  &trans
+&trans  &trans  &trans    &kp UP    &trans     &trans    &trans    &trans    &trans  &trans     &trans   &trans
+&trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp HOME  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans   &trans
+&trans  &trans  &trans    &trans    &trans     &kp END   &trans    &trans    &trans  &trans     &trans   &trans
+                &trans    &trans    &trans     &trans    &trans    &trans    &trans  &trans
+                &trans    &trans    &trans     &trans    &trans    &trans    &trans  &trans
             >;
         };
 
-        symbol_layer {
-            label = "SYMBOL";
-            bindings = <
-&none        &bt BT_SEL 0  &none  &none  &none             &bt BT_CLR         &bt BT_CLR    &none  &none  &none  &bt BT_SEL 0  &none
-&sys_reset   &none         &none  &none  &none             &out OUT_USB       &out OUT_USB  &none  &none  &none  &none         &sys_reset
-&bootloader  &none         &none  &none  &none             &out OUT_BLE       &out OUT_BLE  &none  &none  &none  &none         &bootloader
-&sys_reset   &none         &none  &none  &ext_power EP_ON  &ext_power EP_OFF  &none         &none  &none  &none  &none         &sys_reset
-                           &none  &none  &none             &none              &none         &none  &none  &none
-                           &none  &none  &none             &none              &none         &none  &none  &none
-            >;
-        };
-
-        hotkey_layer {
-            label = "HOTKEY";
-            bindings = <
-&none  &none  &none  &none  &none  &none  &kp N3  &kp N3  &kp N3  &kp N3  &kp N3  &kp N3
-&none  &none  &none  &none  &none  &none  &kp N3  &kp N3  &kp N3  &kp N3  &kp N3  &kp N3
-&none  &none  &none  &none  &none  &none  &kp N3  &kp N3  &kp N3  &kp N3  &kp N3  &kp N3
-&none  &none  &none  &none  &none  &none  &kp N3  &kp N3  &kp N3  &kp N3  &kp N3  &kp N3
-              &none  &none  &none  &none  &none   &none   &none   &none
-              &none  &none  &none  &none  &none   &none   &none   &none
-            >;
-        };
-
-        layer_4 {
+        dummy_layer {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -154,14 +138,15 @@
             >;
         };
 
-        layer_5 {
+        control_layer {
+            label = "CONTROL";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&none        &bt BT_SEL 0  &bt BT_SEL 1  &none  &none             &bt BT_CLR         &none         &none  &none  &none  &none  &bt BT_CLR
+&sys_reset   &none         &none         &none  &none             &out OUT_USB       &out OUT_USB  &none  &none  &none  &none  &sys_reset
+&bootloader  &none         &none         &none  &none             &out OUT_BLE       &out OUT_BLE  &none  &none  &none  &none  &bootloader
+&sys_reset   &none         &none         &none  &ext_power EP_ON  &ext_power EP_OFF  &none         &none  &none  &none  &none  &sys_reset
+                           &none         &none  &none             &none              &none         &none  &none  &none
+                           &none         &none  &none             &none              &none         &none  &none  &none
             >;
         };
 
@@ -273,6 +258,15 @@
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        control_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 };
