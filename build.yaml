@@ -20,7 +20,7 @@
 
 include:
   - board: nice_nano
-    shield: hatsu64_dongle_central
+    shield: hatsu64_dongle_central dongle_display
     artifact-name: hatsu64_dongle_central
     snippet: studio-rpc-usb-uart
     cmake-args: >
@@ -53,7 +53,7 @@ include:
     shield: settings_reset
 
   - board: nice_nano
-    shield: hatsu64_dongle_central
+    shield: hatsu64_dongle_central dongle_display
     artifact-name: hatsu64_dongle_central_with_logging
     snippet: zmk-usb-logging
     cmake-args: >
