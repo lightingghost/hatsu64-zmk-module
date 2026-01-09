@@ -6,7 +6,6 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/pointing.h>
 
 #define AS(keycode) &as LS(keycode) keycode
 
@@ -21,17 +20,25 @@
         stupid: stupid {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-    		wait-ms = <10>;
-    		tap-ms = <10>;
-    		bindings = 
-    		  <&macro_press &kp LSHFT>, 
-                      <&macro_tap &kp O &kp A>,
-              <&macro_release &kp LSHFT>,
-    		  <&macro_tap &kp Z &kp H &kp P &kp N2 &kp N9 &kp N9 &kp N7 &kp N9 &kp N2 &kp N4 &kp N5 &kp N8>,
-    		  <&macro_press &kp LSHFT>, 
-                      <&macro_tap &kp N3>,
-              <&macro_release &kp LSHFT>,
-    		  <&macro_tap &kp RET>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp O &kp A>,
+                <&macro_release>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp Z &kp H &kp P &kp N2 &kp N9 &kp N9 &kp N7 &kp N9 &kp N2 &kp N4 &kp N5 &kp N8>,
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp N3>,
+                <&macro_release>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp RET>;
         };
     };
 
@@ -41,12 +48,12 @@
         default_layer {
             label = "DEFAULT";
             bindings = <
-&kp GRAVE  &kp N1  &kp N2     &kp N3     &kp N4      &kp N5        &kp N6           &kp N7            &kp N8     &kp N9     &kp N0    &lt 2 DEL
-&lt 1 TAB  &kp Q   &kp W      &kp E      &kp R       &kp T         &kp Y            &kp U             &kp I      &kp O      &kp P     &kp BACKSLASH
-&kp LSHFT  &kp A   &kp S      &kp D      &kp F       &kp G         &kp H            &kp J             &kp K      &kp L      &kp SEMI  &kp SQT
-&kp LCTRL  &kp Z   &kp X      &kp C      &kp V       &kp B         &kp N            &kp M             &kp COMMA  &kp DOT    &kp FSLH  &kp RIGHT_ALT
-                   &kp MINUS  &kp EQUAL  &lt 1 ENTER &kp LEFT_GUI  &lt 1 BSPC       &mt RSHIFT SPACE  &kp LBKT   &kp RBKT
-                   &kp LEFT   &kp HOME   &kp LCTRL   &kp UP        &kp DOWN         &kp ESC           &kp END    &kp RIGHT
+&kp GRAVE  &kp N1  &kp N2     &kp N3     &kp N4       &kp N5        &kp N6           &kp N7       &kp N8     &kp N9     &kp N0    &lt 2 DEL
+&lt 1 TAB  &kp Q   &kp W      &kp E      &kp R        &kp T         &kp Y            &kp U        &kp I      &kp O      &kp P     &kp BACKSLASH
+&kp LSHFT  &kp A   &kp S      &kp D      &kp F        &kp G         &kp H            &kp J        &kp K      &kp L      &kp SEMI  &kp SQT
+&kp LCTRL  &kp Z   &kp X      &kp C      &kp V        &kp B         &kp N            &kp M        &kp COMMA  &kp DOT    &kp FSLH  &kp RIGHT_ALT
+                   &kp MINUS  &kp EQUAL  &lt 1 ENTER  &kp LEFT_GUI  &mt RSHIFT BSPC  &lt 1 SPACE  &kp LBKT   &kp RBKT
+                   &kp ESC    &kp DOWN   &kp LSHIFT   &kp UP        &kp RCTRL        &kp TAB      &kp END    &kp RIGHT
             >;
         };
 
@@ -55,7 +62,7 @@
 &trans  &kp F1  &kp F2    &kp F3    &kp F4     &kp F5    &kp F6    &kp F7    &kp F8  &kp F9     &kp F10  &trans
 &trans  &trans  &trans    &kp UP    &trans     &trans    &trans    &trans    &trans  &trans     &trans   &trans
 &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp HOME  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans   &trans
-&trans  &trans  &trans    &trans    &trans     &kp END   &trans    &trans    &trans  &trans     &trans   &trans
+&trans  &trans  &trans    &trans    &stupid    &kp END   &trans    &stupid   &trans  &trans     &trans   &trans
                 &trans    &trans    &trans     &trans    &trans    &trans    &trans  &trans
                 &trans    &trans    &trans     &trans    &trans    &trans    &trans  &trans
             >;
