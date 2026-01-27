@@ -47,7 +47,8 @@
 
         fj_esc {
             bindings = <&kp ESC>;
-            key-positions = <28 31>;
+            key-positions = <28 27>;
+            timeout-ms = <80>;
         };
     };
 
