@@ -45,9 +45,15 @@
     combos {
         compatible = "zmk,combos";
 
-        fj_esc {
+        df_esc {
             bindings = <&kp ESC>;
             key-positions = <28 27>;
+            timeout-ms = <80>;
+        };
+
+        er_tab {
+            bindings = <&kp TAB>;
+            key-positions = <16 15>;
             timeout-ms = <80>;
         };
     };
