@@ -48,13 +48,19 @@
         df_esc {
             bindings = <&kp ESC>;
             key-positions = <28 27>;
-            timeout-ms = <80>;
+            timeout-ms = <50>;
         };
 
         er_tab {
             bindings = <&kp TAB>;
             key-positions = <16 15>;
-            timeout-ms = <80>;
+            timeout-ms = <50>;
+        };
+
+        cv_bksp {
+            bindings = <&none>;
+            key-positions = <39 40>;
+            timeout-ms = <50>;
         };
     };
 
@@ -69,7 +75,7 @@
 &kp LSHFT  &kp A   &kp S      &kp D          &kp F        &kp G         &kp H            &kp J        &kp K      &kp L      &kp SEMI  &kp SQT
 &kp LCTRL  &kp Z   &kp X      &kp C          &kp V        &kp B         &kp N            &kp M        &kp COMMA  &kp DOT    &kp FSLH  &kp RIGHT_ALT
                    &kp MINUS  &kp EQUAL      &lt 1 ENTER  &kp LEFT_GUI  &mt RSHIFT BSPC  &lt 1 SPACE  &kp LBKT   &kp RBKT
-                   &kp ESC    &kp BACKSPACE  &kp LSHIFT   &kp LCTRL     &kp RCTRL        &kp TAB      &kp END    &kp RIGHT
+                   &kp ESC    &kp BACKSPACE  &kp LSHIFT   &kp LCTRL     &kp RCTRL        &kp TAB      &kp END    &kp GRAVE
             >;
         };
 
