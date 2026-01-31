@@ -58,7 +58,7 @@
         };
 
         cv_bksp {
-            bindings = <&none>;
+            bindings = <&kp BACKSPACE>;
             key-positions = <39 40>;
             timeout-ms = <50>;
         };
