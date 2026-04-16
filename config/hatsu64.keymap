@@ -48,19 +48,22 @@
         df_esc {
             bindings = <&kp ESC>;
             key-positions = <28 27>;
-            timeout-ms = <50>;
+            timeout-ms = <70>;
+            require-prior-idle-ms = <70>;
         };
 
         er_tab {
             bindings = <&kp TAB>;
             key-positions = <16 15>;
-            timeout-ms = <50>;
+            timeout-ms = <70>;
+            require-prior-idle-ms = <70>;
         };
 
         cv_bksp {
             bindings = <&kp BACKSPACE>;
             key-positions = <39 40>;
-            timeout-ms = <50>;
+            timeout-ms = <70>;
+            require-prior-idle-ms = <70>;
         };
     };
 
