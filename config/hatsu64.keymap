@@ -56,7 +56,7 @@
             bindings = <&kp TAB>;
             key-positions = <16 15>;
             timeout-ms = <70>;
-            require-prior-idle-ms = <70>;
+            require-prior-idle-ms = <100>;
         };
 
         cv_bksp {
