@@ -55,8 +55,8 @@
         er_tab {
             bindings = <&kp TAB>;
             key-positions = <16 15>;
-            timeout-ms = <70>;
-            require-prior-idle-ms = <200>;
+            timeout-ms = <60>;
+            require-prior-idle-ms = <300>;
         };
 
         cv_bksp {
